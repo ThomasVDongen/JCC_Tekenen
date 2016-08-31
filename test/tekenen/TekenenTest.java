@@ -5,6 +5,7 @@
  */
 package tekenen;
 
+import Drawing.Domain.Tekenen;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
