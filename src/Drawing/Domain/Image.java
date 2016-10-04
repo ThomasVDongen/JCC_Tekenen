@@ -5,6 +5,7 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import java.awt.Point;
 import Drawing.Override.Color;
 import java.io.File;
@@ -80,9 +81,6 @@ public class Image extends DrawingItem{
         this.file = file;
         this.size = size;
     }
-    
-    
-
     @Override
     public String toString() {
         return super.toString() + "Image{" + "file=" + file + ", size=" + size + '}';
@@ -93,8 +91,8 @@ public class Image extends DrawingItem{
         return false;
     }
 
-    
-    
-    
-
+    @Override
+    public void paint(IPaintable paintable) {
+       paintable.paintImage(this);
+    }
 }

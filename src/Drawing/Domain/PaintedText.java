@@ -5,6 +5,7 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import java.awt.Point;
 import Drawing.Override.Color;
 import java.awt.Font;
@@ -81,9 +82,7 @@ public class PaintedText extends DrawingItem{
         this.content = content;
         this.font = font;
     }
-    
-    
-
+  
     @Override
     public String toString() {
         return super.toString() + "PaintedText{" + "content=" + content + ", font=" + font + '}';
@@ -93,8 +92,10 @@ public class PaintedText extends DrawingItem{
     public boolean insideBoundingBox(Point point) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
 
+    @Override
+    public void paint(IPaintable paintable) {
+        paintable.paintText(this);
+    }
+ 
 }

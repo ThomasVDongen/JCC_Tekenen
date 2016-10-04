@@ -5,6 +5,7 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import java.awt.Point;
 import Drawing.Override.Color;
 import java.util.List;
@@ -70,7 +71,6 @@ public class Polygon extends DrawingItem{
         this.vertices = vertices;
         this.weight = weight;
     }
-    
 
     @Override
     public String toString() {
@@ -80,6 +80,11 @@ public class Polygon extends DrawingItem{
     @Override
     public boolean insideBoundingBox(Point point) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void paint(IPaintable paintable) {
+        
     }
     
     

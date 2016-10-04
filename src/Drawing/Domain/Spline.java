@@ -5,6 +5,7 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import Drawing.Override.Color;
 import java.awt.Point;
 import java.util.List;
@@ -97,8 +98,6 @@ public class Spline extends DrawingItem{
         this.degree = degree;
     }
     
-    
-
     @Override
     public String toString() {
         return super.toString() + "Spline{" + "points=" + points + ", weight=" + weight + ", degree=" + degree + '}';
@@ -106,12 +105,14 @@ public class Spline extends DrawingItem{
 
     @Override
     public boolean insideBoundingBox(Point point) {
+        //TODO
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
-    
 
-    
+    @Override
+    public void paint(IPaintable paintable) {        
+        for (int i = 0; i < points.size() - 1; i++) {
+            paintable.paintLine(points.get(i), points.get(i+1), weight);
+        }
+    }
 }

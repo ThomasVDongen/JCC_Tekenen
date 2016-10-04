@@ -5,6 +5,8 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
+import Drawing.JavaFX.JavaFXPaintable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,6 +90,10 @@ public class Drawing {
         
         items = new ArrayList<>();
     }
+    public void addItem(DrawingItem item)
+    {
+        items.add(item);
+    }
     
     public Boolean revert(DrawingItem oldItem, DrawingItem newItem){
         newItem.previousState = oldItem;
@@ -106,6 +112,13 @@ public class Drawing {
     @Override
     public String toString() {
         return "Drawing{" + "name=" + name + ", width=" + width + ", height=" + height + '}';
+    }
+
+    public void paint(IPaintable paintable) {
+        for (DrawingItem item : items) {
+            System.out.println(item);
+            item.paint(paintable);
+        }
     }
     
     

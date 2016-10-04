@@ -5,6 +5,7 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import java.awt.Point;
 import Drawing.Override.Color;
 
@@ -15,7 +16,7 @@ import Drawing.Override.Color;
 public abstract class DrawingItem implements Comparable<DrawingItem>{
     
     private Point anchor;
-    private Color color;
+    Color color;
 
     /**
      *
@@ -102,10 +103,8 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
     public String toString() {
         return "DrawingItem{" + "anchor=" + anchor + ", color=" + color + ", previousState=" + previousState + '}';
     }
+
+    public abstract void paint(IPaintable paintable);     
     
-    /**
-     *
-     * @return
-     */
     
 }

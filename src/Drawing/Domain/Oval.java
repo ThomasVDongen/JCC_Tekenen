@@ -5,8 +5,10 @@
  */
 package Drawing.Domain;
 
+import Drawing.JavaFX.IPaintable;
 import java.awt.Point;
 import Drawing.Override.Color;
+
 /**
  *
  * @author Thomas
@@ -42,9 +44,7 @@ public class Oval extends DrawingItem{
         this.width = width;
         this.height = height;
     }
-    
-
-     /**
+    /**
      * Get the value of height
      *
      * @return the value of height
@@ -89,9 +89,9 @@ public class Oval extends DrawingItem{
     public boolean insideBoundingBox(Point point) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    /**
-     *
-     * @return
-     */
-   }
+
+    @Override
+    public void paint(IPaintable paintable) {
+        paintable.paintOval(this);
+    }
+}
