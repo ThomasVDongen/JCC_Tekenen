@@ -5,8 +5,8 @@
  */
 package Drawing.Domain;
 
-import java.awt.Color;
 import java.awt.Point;
+import Drawing.Override.Color;
 
 /**
  *
@@ -16,7 +16,11 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
     
     private Point anchor;
     private Color color;
-    private DrawingItem previousState;
+
+    /**
+     *
+     */
+    public DrawingItem previousState;
 
     /**
      * Get the value of previousState
@@ -64,9 +68,44 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
         this.anchor = anchor;
     }
 
+    /**
+     *
+     * @param anchor
+     * @param color
+     * @param previousState
+     */
+    public DrawingItem(Point anchor, Color color, DrawingItem previousState) {
+        this.anchor = anchor;
+        this.color = color;
+        this.previousState = previousState;
+    }
+
+    /**
+     *
+     * @param anchor
+     * @param color
+     */
+    public DrawingItem(Point anchor, Color color) {
+        this.anchor = anchor;
+        this.color = color;
+    }
+    
+    public abstract boolean insideBoundingBox(Point point);
+    
+     
     @Override
     public int compareTo(DrawingItem o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public String toString() {
+        return "DrawingItem{" + "anchor=" + anchor + ", color=" + color + ", previousState=" + previousState + '}';
+    }
+    
+    /**
+     *
+     * @return
+     */
+    
 }

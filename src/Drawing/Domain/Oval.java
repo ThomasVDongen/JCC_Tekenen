@@ -5,6 +5,8 @@
  */
 package Drawing.Domain;
 
+import java.awt.Point;
+import Drawing.Override.Color;
 /**
  *
  * @author Thomas
@@ -15,6 +17,34 @@ public class Oval extends DrawingItem{
     private double height;
 
     /**
+     *
+     * @param width
+     * @param height
+     * @param anchor
+     * @param color
+     * @param previousState
+     */
+    public Oval(double width, double height, Point anchor, Color color, DrawingItem previousState) {
+        super(anchor, color, previousState);
+        this.width = width;
+        this.height = height;
+    }
+
+    /**
+     *
+     * @param width
+     * @param height
+     * @param anchor
+     * @param color
+     */
+    public Oval(double width, double height, Point anchor, Color color) {
+        super(anchor, color);
+        this.width = width;
+        this.height = height;
+    }
+    
+
+     /**
      * Get the value of height
      *
      * @return the value of height
@@ -49,8 +79,19 @@ public class Oval extends DrawingItem{
     public void setWidth(double width) {
         this.width = width;
     }
-  
-    
 
+    @Override
+    public String toString() {
+        return super.toString() + "Oval{" + "width=" + width + ", height=" + height + '}';
+    }
+
+    @Override
+    public boolean insideBoundingBox(Point point) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
-}
+    /**
+     *
+     * @return
+     */
+   }

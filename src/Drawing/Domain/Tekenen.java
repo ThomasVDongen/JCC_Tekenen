@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Drawing.Domain;
-
 /**
  *
  * @author Thomas
@@ -16,6 +15,20 @@ public class Tekenen {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+               
+        
+        
+    }
+    
+    /**
+     *
+     * @param value
+     */
+    public static void print(String value)
+    {
+        System.out.println(value);
     }
     
 }

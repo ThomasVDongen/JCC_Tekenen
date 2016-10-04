@@ -5,6 +5,9 @@
  */
 package Drawing.Domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Thomas
@@ -14,6 +17,7 @@ public class Drawing {
     private String name;
     private int width;
     private int height;
+    private List<DrawingItem> items;
 
     /**
      * Get the value of height
@@ -71,10 +75,32 @@ public class Drawing {
         this.name = name;
     }
 
+    /**
+     *
+     * @param name
+     * @param width
+     * @param height
+     */
     public Drawing(String name, int width, int height) {
         this.name = name;
         this.width = width;
         this.height = height;
+        
+        items = new ArrayList<>();
+    }
+    
+    public Boolean revert(DrawingItem oldItem, DrawingItem newItem){
+        newItem.previousState = oldItem;
+        items.add(newItem);
+        items.remove(oldItem);
+        return true;
+        
+    }
+    
+    public Boolean Overlaps(DrawingItem item)
+    {
+        ///
+        return false;
     }
 
     @Override
